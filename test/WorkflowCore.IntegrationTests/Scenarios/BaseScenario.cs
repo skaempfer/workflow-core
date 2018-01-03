@@ -41,7 +41,7 @@ namespace WorkflowCore.IntegrationTests.Scenarios
 
         protected virtual void Configure(IServiceCollection services)
         {
-            services.AddWorkflow();
+            services.AddWorkflow(o => o.UseSqlServer("Server = (localdb)\\MSSQLLocalDB; Database = DTBS_EAI; Trusted_Connection = True;", true, true));
         }
 
         public void Dispose()

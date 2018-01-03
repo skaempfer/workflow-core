@@ -19,7 +19,7 @@ namespace WorkflowCore.IntegrationTests.Scenarios
         public void Build(IWorkflowBuilder<Object> builder)
         {
             builder
-                .StartWith<Step1>()
+                .StartWith<AsyncStep1>()
                 .Then(context =>
                 {
                     Step2Ticker++;
@@ -29,7 +29,7 @@ namespace WorkflowCore.IntegrationTests.Scenarios
         }
     }
 
-    internal class Step1 : StepBody
+    internal class AsyncStep1 : StepBody
     {
         public override ExecutionResult Run(IStepExecutionContext context)
         {
